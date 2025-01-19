@@ -17,7 +17,6 @@ public final class AvibraLoginPage extends BasePage {
 
     //Actions
     public AvibraLoginPage enterusername(String user){
-        //Uninterruptibles.sleepUninterruptibly(3, TimeUnit.SECONDS);
         sendkeys(textbox_username, user);
         return this;
     }
@@ -35,8 +34,7 @@ public final class AvibraLoginPage extends BasePage {
 
     public String getTitle()
     {
-       String title = DriverManagerTL.getDriver().getTitle();
-       return title;
+       return getPageTitle();
     }
 
 

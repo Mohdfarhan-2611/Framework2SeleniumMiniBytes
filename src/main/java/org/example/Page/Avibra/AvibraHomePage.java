@@ -22,16 +22,12 @@ public final class AvibraHomePage extends BasePage {
     //Action
     public AvibraHomePage clickprofilebutton()
     {
-        WebDriverWait wait = new WebDriverWait(DriverManagerTL.getDriver(), Duration.ofSeconds(20));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(profile_icon));
         clickElement(profile_icon);
         return this;
     }
 
     public AvibraLoginPage clicklogout()
     {
-        WebDriverWait wait = new WebDriverWait(DriverManagerTL.getDriver(), Duration.ofSeconds(20));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(logout_button));
         clickElement(logout_button);
         return new AvibraLoginPage();
     }
