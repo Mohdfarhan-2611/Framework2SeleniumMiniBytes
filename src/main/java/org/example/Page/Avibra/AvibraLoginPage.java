@@ -1,12 +1,13 @@
 package org.example.Page.Avibra;
 
 import com.google.common.util.concurrent.Uninterruptibles;
+import org.example.Base.BasePage;
 import org.example.Driver.DriverManagerTL;
 import org.openqa.selenium.By;
 
 import java.util.concurrent.TimeUnit;
 
-public final class AvibraLoginPage {
+public final class AvibraLoginPage extends BasePage {
 
     //locators
     private final By textbox_username = By.xpath("//input[@name='email']");
@@ -16,18 +17,18 @@ public final class AvibraLoginPage {
 
     //Actions
     public AvibraLoginPage enterusername(String user){
-        Uninterruptibles.sleepUninterruptibly(3, TimeUnit.SECONDS);
-        DriverManagerTL.getDriver().findElement(textbox_username).sendKeys(user);
+        //Uninterruptibles.sleepUninterruptibly(3, TimeUnit.SECONDS);
+        sendkeys(textbox_username, user);
         return this;
     }
 
     public AvibraLoginPage enterpassword(String pass){
-        DriverManagerTL.getDriver().findElement(textbox_password).sendKeys(pass);
+        sendkeys(textbox_password, pass);
         return this;
     }
 
     public AvibraHomePage clicklogin() {
-        DriverManagerTL.getDriver().findElement(login_button).click();
+        clickElement(login_button);
         return new AvibraHomePage();
 
     }
