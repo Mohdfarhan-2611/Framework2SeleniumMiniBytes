@@ -17,17 +17,17 @@ public final class AvibraLoginPage extends BasePage {
 
     //Actions
     public AvibraLoginPage enterusername(String user){
-        sendkeys(textbox_username, user);
+        sendkeys(textbox_username, user, "Present");
         return this;
     }
 
     public AvibraLoginPage enterpassword(String pass){
-        sendkeys(textbox_password, pass);
+        sendkeys(textbox_password, pass, "Present");
         return this;
     }
 
     public AvibraHomePage clicklogin() {
-        clickElement(login_button);
+        clickElement(login_button, "Clickable");
         return new AvibraHomePage();
 
     }

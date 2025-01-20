@@ -11,15 +11,29 @@ import java.time.Duration;
 
 public class BasePage {
 
-    protected void clickElement(By by)
+    protected void clickElement(By by,  String waitStrategy)
     {
-        explicitywaitforElementToBeClickable(by);
+        if(waitStrategy.equalsIgnoreCase("Clickale"))
+        {
+            explicitywaitforElementToBeClickable(by);
+        }
+        else if (waitStrategy.equalsIgnoreCase("Present")) {
+
+            explicitywaitforElementToBePresent(by);
+        }
         DriverManagerTL.getDriver().findElement(by).click();
     }
 
-    protected void sendkeys(By by, String key)
+    protected void sendkeys(By by, String key, String waitStrategy)
     {
-        explicitywaitforElementToBeClickable(by);
+        if(waitStrategy.equalsIgnoreCase("Clickale"))
+        {
+            explicitywaitforElementToBeClickable(by);
+        }
+        else if (waitStrategy.equalsIgnoreCase("Present")) {
+
+            explicitywaitforElementToBePresent(by);
+        }
         DriverManagerTL.getDriver().findElement(by).sendKeys(key);
     }
 

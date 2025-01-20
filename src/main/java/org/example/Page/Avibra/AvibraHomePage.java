@@ -22,13 +22,13 @@ public final class AvibraHomePage extends BasePage {
     //Action
     public AvibraHomePage clickprofilebutton()
     {
-        clickElement(profile_icon);
+        clickElement(profile_icon, "Present");
         return this;
     }
 
     public AvibraLoginPage clicklogout()
     {
-        clickElement(logout_button);
+        clickElement(logout_button, "Clickable");
         return new AvibraLoginPage();
     }
 }
