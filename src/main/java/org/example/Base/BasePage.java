@@ -34,4 +34,11 @@ public class BasePage {
         new WebDriverWait(DriverManagerTL.getDriver(), Duration.ofSeconds(FrameworkConstant.getEXPLICITWAIT()))
                 .until(ExpectedConditions.elementToBeClickable(by));
     }
+
+
+    private void explicitywaitforElementToBePresent(By by)
+    {
+        new WebDriverWait(DriverManagerTL.getDriver(), Duration.ofSeconds(FrameworkConstant.getEXPLICITWAIT()))
+                .until(ExpectedConditions.visibilityOfElementLocated(by));
+    }
 }

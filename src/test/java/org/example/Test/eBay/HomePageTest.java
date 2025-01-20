@@ -18,12 +18,11 @@ public final class HomePageTest extends BaseTest {
     {
 
     }
-    /*
-       verify the title is containing ebay or eBay
+
+    /* verify the title is containing ebay or eBay
        verify the title is not null and length of the title is greater than 10 and less than 100
        check for the links in the pages --->
        number of links displayed is exactly 10 or 15
-
      */
 
 
