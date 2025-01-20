@@ -2,8 +2,11 @@ package org.example.Base;
 
 import org.example.Constant.FrameworkConstant;
 import org.example.Driver.DriverManagerTL;
+import org.example.Enum.WaitStrategy;
+import org.example.Factories.ExplicitWaitFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -11,30 +14,16 @@ import java.time.Duration;
 
 public class BasePage {
 
-    protected void clickElement(By by,  String waitStrategy)
+    protected void clickElement(By by, WaitStrategy waitStrategy)
     {
-        if(waitStrategy.equalsIgnoreCase("Clickale"))
-        {
-            explicitywaitforElementToBeClickable(by);
-        }
-        else if (waitStrategy.equalsIgnoreCase("Present")) {
-
-            explicitywaitforElementToBePresent(by);
-        }
-        DriverManagerTL.getDriver().findElement(by).click();
+       WebElement element =  ExplicitWaitFactory.performExplicitWait(waitStrategy, by);
+                  element.click();
     }
 
-    protected void sendkeys(By by, String key, String waitStrategy)
+    protected void sendkeys(By by, String key, WaitStrategy waitStrategy)
     {
-        if(waitStrategy.equalsIgnoreCase("Clickale"))
-        {
-            explicitywaitforElementToBeClickable(by);
-        }
-        else if (waitStrategy.equalsIgnoreCase("Present")) {
-
-            explicitywaitforElementToBePresent(by);
-        }
-        DriverManagerTL.getDriver().findElement(by).sendKeys(key);
+      WebElement element=  ExplicitWaitFactory.performExplicitWait(waitStrategy, by);
+                 element.sendKeys(key);
     }
 
 
@@ -43,16 +32,4 @@ public class BasePage {
         return DriverManagerTL.getDriver().getTitle();
     }
 
-    private void explicitywaitforElementToBeClickable(By by)
-    {
-        new WebDriverWait(DriverManagerTL.getDriver(), Duration.ofSeconds(FrameworkConstant.getEXPLICITWAIT()))
-                .until(ExpectedConditions.elementToBeClickable(by));
-    }
-
-
-    private void explicitywaitforElementToBePresent(By by)
-    {
-        new WebDriverWait(DriverManagerTL.getDriver(), Duration.ofSeconds(FrameworkConstant.getEXPLICITWAIT()))
-                .until(ExpectedConditions.visibilityOfElementLocated(by));
-    }
 }

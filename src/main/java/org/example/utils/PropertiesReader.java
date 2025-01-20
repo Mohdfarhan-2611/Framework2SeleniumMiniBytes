@@ -1,6 +1,7 @@
 package org.example.utils;
 
 import org.example.Constant.FrameworkConstant;
+import org.example.Enum.ConfigProperties;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -27,7 +28,7 @@ public final class PropertiesReader {
             properties.load(fileInputStream);
             for(Map.Entry<Object, Object> entry : properties.entrySet())
             {
-                CONFIGMAP.put(String.valueOf(entry.getKey()), String.valueOf(entry.getValue()).trim());
+                CONFIGMAP.put(String.valueOf(entry.getKey()).toLowerCase(), String.valueOf(entry.getValue()).trim());
             }
 
         } catch (FileNotFoundException e) {
@@ -39,11 +40,11 @@ public final class PropertiesReader {
     }
 
 
-   public static String get(String key) throws Exception {
-       if(Objects.isNull(key) || Objects.isNull(CONFIGMAP.get(key))){
-           throw new Exception("Property name "+key+ "is not found check config.properties");
+   public static String get(ConfigProperties key) throws Exception {
+       if(Objects.isNull(key) || Objects.isNull(CONFIGMAP.get(key.name().toLowerCase()))){
+           throw new Exception("Property name " +key+ " is not found check config.properties");
        }
-       return CONFIGMAP.get(key);
+       return CONFIGMAP.get(key.name().toLowerCase());
    }
 
 

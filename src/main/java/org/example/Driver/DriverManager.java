@@ -1,5 +1,6 @@
 package org.example.Driver;
 
+import org.example.Enum.ConfigProperties;
 import org.example.utils.PropertiesReader;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -15,7 +16,7 @@ public class DriverManager {
         if(DriverManagerTL.getDriver()==null)
         {
             DriverManagerTL.setDriver(new ChromeDriver());
-            DriverManagerTL.getDriver().get(PropertiesReader.get("avibra_url"));
+            DriverManagerTL.getDriver().get(PropertiesReader.get(ConfigProperties.AVIBRA_URL));
         }
     }
 

@@ -3,6 +3,7 @@ package org.example.Page.Avibra;
 import com.google.common.util.concurrent.Uninterruptibles;
 import org.example.Base.BasePage;
 import org.example.Driver.DriverManagerTL;
+import org.example.Enum.WaitStrategy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -22,13 +23,13 @@ public final class AvibraHomePage extends BasePage {
     //Action
     public AvibraHomePage clickprofilebutton()
     {
-        clickElement(profile_icon, "Present");
+        clickElement(profile_icon, WaitStrategy.PRESENT);
         return this;
     }
 
     public AvibraLoginPage clicklogout()
     {
-        clickElement(logout_button, "Clickable");
+        clickElement(logout_button, WaitStrategy.CLICKABLE);
         return new AvibraLoginPage();
     }
 }

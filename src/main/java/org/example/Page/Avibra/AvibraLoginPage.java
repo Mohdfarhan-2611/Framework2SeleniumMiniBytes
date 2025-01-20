@@ -3,6 +3,7 @@ package org.example.Page.Avibra;
 import com.google.common.util.concurrent.Uninterruptibles;
 import org.example.Base.BasePage;
 import org.example.Driver.DriverManagerTL;
+import org.example.Enum.WaitStrategy;
 import org.openqa.selenium.By;
 
 import java.util.concurrent.TimeUnit;
@@ -17,17 +18,17 @@ public final class AvibraLoginPage extends BasePage {
 
     //Actions
     public AvibraLoginPage enterusername(String user){
-        sendkeys(textbox_username, user, "Present");
+        sendkeys(textbox_username, user, WaitStrategy.PRESENT);
         return this;
     }
 
     public AvibraLoginPage enterpassword(String pass){
-        sendkeys(textbox_password, pass, "Present");
+        sendkeys(textbox_password, pass, WaitStrategy.PRESENT);
         return this;
     }
 
     public AvibraHomePage clicklogin() {
-        clickElement(login_button, "Clickable");
+        clickElement(login_button, WaitStrategy.CLICKABLE);
         return new AvibraHomePage();
 
     }
