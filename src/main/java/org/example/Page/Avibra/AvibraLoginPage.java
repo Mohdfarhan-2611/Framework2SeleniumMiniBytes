@@ -4,6 +4,7 @@ import com.google.common.util.concurrent.Uninterruptibles;
 import org.example.Base.BasePage;
 import org.example.Driver.DriverManagerTL;
 import org.example.Enum.WaitStrategy;
+import org.example.Report.ExtentReport;
 import org.openqa.selenium.By;
 
 import java.util.concurrent.TimeUnit;
@@ -19,16 +20,19 @@ public final class AvibraLoginPage extends BasePage {
     //Actions
     public AvibraLoginPage enterusername(String user){
         sendkeys(textbox_username, user, WaitStrategy.PRESENT);
+        ExtentReport.test.pass("Username Entered");
         return this;
     }
 
     public AvibraLoginPage enterpassword(String pass){
         sendkeys(textbox_password, pass, WaitStrategy.PRESENT);
+        ExtentReport.test.pass("Password Entered");
         return this;
     }
 
     public AvibraHomePage clicklogin() {
-        clickElement(login_button, WaitStrategy.CLICKABLE);
+        clickElement(login_button, WaitStrategy.CLICKABLE );
+        ExtentReport.test.pass("Login Clicked");
         return new AvibraHomePage();
 
     }

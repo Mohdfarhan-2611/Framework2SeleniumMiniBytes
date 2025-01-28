@@ -5,8 +5,10 @@ public enum ConfigProperties {
     EBAY_URL,
     ORANGEHRM_URL,
     AVIBRA_URL,
-    USERNAME,
-    PASSWORD
+    VALIDUSERNAME,
+    VALIDPASSWORD,
+    INVALIDUSERNAME,
+    INVALIDPASSWORD
 
 
 }

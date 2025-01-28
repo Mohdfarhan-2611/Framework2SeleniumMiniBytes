@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite" thread-count="2" parallel="methods">
+<suite name="All Test Suite" thread-count="1" parallel="methods">
     <test verbose="2" preserve-order="true" name="C:/Users/mhdfa/IdeaProjects/Framework2SeleniumMiniBytes">
         <classes>
             <class name="org.example.Test.Avibra.Avibraloginlogout"></class>

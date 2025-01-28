@@ -4,6 +4,7 @@ import com.google.common.util.concurrent.Uninterruptibles;
 import org.example.Base.BasePage;
 import org.example.Driver.DriverManagerTL;
 import org.example.Enum.WaitStrategy;
+import org.example.Report.ExtentReport;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -24,12 +25,14 @@ public final class AvibraHomePage extends BasePage {
     public AvibraHomePage clickprofilebutton()
     {
         clickElement(profile_icon, WaitStrategy.PRESENT);
+        ExtentReport.test.pass("Profile icon clicked");
         return this;
     }
 
     public AvibraLoginPage clicklogout()
     {
         clickElement(logout_button, WaitStrategy.CLICKABLE);
+        ExtentReport.test.pass("Logoutbutton clicked");
         return new AvibraLoginPage();
     }
 }
