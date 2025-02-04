@@ -25,7 +25,7 @@ public final class ExtentReport {
 
         spark.config().setTheme(Theme.STANDARD);
         spark.config().setDocumentTitle("TMB Report");
-        spark.config().setReportName("Youtube Training");
+        spark.config().setReportName("Login Report");
 
     }
     public static void flushReports() {
